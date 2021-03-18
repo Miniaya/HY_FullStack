@@ -34,10 +34,6 @@ const App = () => {
           setNotification(
             `${changedPerson.name}'s number was updated to ${changedPerson.number}`
           )
-          setTimeout(() => {
-            setNotification(null)
-          }, 5000)
-
           setPersons(persons.map(person => person.id !== changedPerson.id ? person : returnedPerson))
         })
         .catch(error => {
@@ -45,11 +41,12 @@ const App = () => {
           setNotification(
             `${changedPerson.name} was already removed from the server`
           )
-          setTimeout(() => {
-            setNotification(null)
-          }, 5000)
           setPersons(persons.filter(p => p.id !== changedPerson.id))
         })
+
+        setTimeout(() => {
+          setNotification(null)
+        }, 5000)
 
     } else {
       const personObject = {
@@ -64,13 +61,21 @@ const App = () => {
           setNotification(
             `${returnedPerson.name} was added to the Phonebook`
           )
-          setTimeout(() => {
-            setNotification(null)
-          }, 5000)
           setPersons(persons.concat(returnedPerson))
         })
+        .catch(error => {
+          setClassId('error')
+          setNotification(
+            `Error: Check that the name has at least 3 characters and number at least 8 characters.`
+          )
+        })
+
+        setTimeout(() => {
+          setNotification(null)
+        }, 5000)
 
     }
+
     setNewName('')
     setNewNumber('')
   }
