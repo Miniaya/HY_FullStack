@@ -1,0 +1,10 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbXVsaSIsImlkIjoiNjA2ZGQ4NTQ2NjljYWI3YTE3ZDljN2FhIiwiaWF0IjoxNjE3ODcwOTgwfQ.5U2yWIN_Cxvt_G4pJFQZLG0EO1v0X6_4NjF3ecXA-8s
+
+{
+    "title": "Mullistavat mullipäät",
+    "author": "Hemuli",
+    "url": "www.helsinki.fi",
+    "likes": 5
+}
