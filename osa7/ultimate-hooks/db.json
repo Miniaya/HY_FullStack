@@ -1,0 +1,72 @@
+{
+  "notes": [
+    {
+      "content": "custom-hooks are grat",
+      "id": 1
+    },
+    {
+      "content": "the best featrure ever <3",
+      "id": 2
+    },
+    {
+      "content": "New note using hooks",
+      "id": 3
+    },
+    {
+      "content": "new note",
+      "id": 4
+    },
+    {
+      "content": "teksti",
+      "id": 5
+    },
+    {
+      "content": "uusi",
+      "id": 6
+    },
+    {
+      "content": "plaaplaa",
+      "id": 7
+    },
+    {
+      "content": "toimiiko?",
+      "id": 8
+    },
+    {
+      "content": "Final tets",
+      "id": 9
+    }
+  ],
+  "persons": [
+    {
+      "name": "mluukkai",
+      "number": "040-5483923",
+      "id": 1
+    },
+    {
+      "name": "kaltsoon",
+      "number": "045-2323456",
+      "id": 2
+    },
+    {
+      "name": "nimi",
+      "number": "numero",
+      "id": 3
+    },
+    {
+      "name": "lalalaa",
+      "number": "tidii",
+      "id": 4
+    },
+    {
+      "name": "nimi",
+      "number": "numero",
+      "id": 5
+    },
+    {
+      "name": "Hemuli",
+      "number": "112",
+      "id": 6
+    }
+  ]
+}
