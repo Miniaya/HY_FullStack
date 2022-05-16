@@ -1,7 +1,9 @@
+/*
 interface HeightWeight {
   height: number,
   weight: number,
 }
+
 
 const parseArguments = (args: string[]): HeightWeight => {
   if (args.length < 4) throw new Error('Not enough arguments');
@@ -16,29 +18,33 @@ const parseArguments = (args: string[]): HeightWeight => {
     throw new Error('Provided values were not numbers!');
   }
 }
+*/
 
-const calculateBmi = (height: number, weight: number) => {
+export const calculateBmi = (height: number, weight: number): string => {
   const bmi = weight / Math.pow((height / 100), 2)
 
   if (bmi < 16.0) {
-    console.log('Underweight (Severe thinness)')
+    return('Underweight (Severe thinness)')
   } else if (bmi > 16.0 && bmi < 16.9) {
-    console.log('Underweight (Moderate thinness)')
+    return('Underweight (Moderate thinness)')
   } else if (bmi > 17.0 && bmi < 18.4) {
-    console.log('Underweight (Mild thinness')
+    return('Underweight (Mild thinness')
   } else if (bmi > 18.5 && bmi < 24.9) {
-    console.log('Normal (healthy weight)')
+    return('Normal (healthy weight)')
   } else if (bmi > 25.0 && bmi < 29.9) {
-    console.log('Overweight (Pre-obese)')
+    return('Overweight (Pre-obese)')
   } else if (bmi > 30.0 && bmi < 34.9) {
-    console.log('Obese (Class I)')
+    return('Obese (Class I)')
   } else if (bmi > 35.0 && bmi < 39.9) {
-    console.log('Obese (Class II)')
+    return('Obese (Class II)')
   } else if (bmi >= 40.0) {
-    console.log('Obese (Class III)')
+    return('Obese (Class III)')
   }
+
+  return('undefined')
 }
 
+/*
 try {
   const { height, weight } = parseArguments(process.argv);
   calculateBmi(height, weight);
@@ -49,3 +55,4 @@ try {
   }
   console.log(errorMessage);
 }
+*/
