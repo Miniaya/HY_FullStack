@@ -20,28 +20,28 @@ const parseArgs = (args: string[]): ParsedArguments => {
     return {
       targetValue: Number(args[2]),
       trainingPeriod: args.slice(3).map(i => Number(i))
-    }
+    };
   } else {
     throw new Error('Provided values were not numbers!');
   }
-}
+};
 
-const calculateExercises = (hours: number[], targetDailyHours: number) => {
-  const average = hours.reduce((p, c) => p + c, 0) / hours.length
-  let rating: number, ratingDescription: string
+export const calculateExercises = (hours: number[], targetDailyHours: number): ExerciseData => {
+  const average = hours.reduce((p, c) => p + c, 0) / hours.length;
+  let rating: number, ratingDescription: string;
 
   if (average >= targetDailyHours) {
-    rating = 3
-    ratingDescription = 'Nicely done! Keep up the good work!'
+    rating = 3;
+    ratingDescription = 'Nicely done! Keep up the good work!';
   } else if (average >= (targetDailyHours / 2)) {
-    rating = 2
-    ratingDescription = 'Not too bad, but you can do better'
+    rating = 2;
+    ratingDescription = 'Not too bad, but you can do better';
   } else  {
-    rating = 1
-    ratingDescription = 'You could better your performance a lot'
+    rating = 1;
+    ratingDescription = 'You could better your performance a lot';
   }
 
-  console.log({
+  return {
     periodLength: hours.length,
     trainingDays: hours.filter(i => i > 0).length,
     target: targetDailyHours,
@@ -49,14 +49,14 @@ const calculateExercises = (hours: number[], targetDailyHours: number) => {
     success: average >= targetDailyHours,
     rating,
     ratingDescription,
-  })
-}
+  };
+};
 
 try {
   const { targetValue, trainingPeriod } = parseArgs(process.argv);
   calculateExercises(trainingPeriod, targetValue);
 } catch (error: unknown) {
-  let errorMessage = 'Something bad happened.'
+  let errorMessage = 'Something bad happened.';
   if (error instanceof Error) {
     errorMessage += ' Error: ' + error.message;
   }
