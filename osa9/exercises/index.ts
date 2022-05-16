@@ -4,8 +4,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 const app = express();
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 app.get('/hello', (_req, res) => {
@@ -38,6 +38,7 @@ app.get('/bmi', (req, res) => {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 app.post('/exercises', (req, res) => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { daily_exercises, target } = req.body;
   if (!daily_exercises || !target) {
     return res.status(400).json({
@@ -49,10 +50,11 @@ app.post('/exercises', (req, res) => {
   if (isNaN(Number(target)) || !Array.isArray(daily_exercises) || !daily_exercises.every((i: any) => typeof i === "number")) {
     return res.status(400).json({
       error: "malformatted parameters"
-    })
+    });
   }
 
-  return res.json(calculateExercises(daily_exercises, Number(target)))
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+  return res.json(calculateExercises(daily_exercises, Number(target)));
 });
 
 const PORT = 3003;
