@@ -38,22 +38,21 @@ app.get('/bmi', (req, res) => {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 app.post('/exercises', (req, res) => {
-  console.log(req.body);
   const { daily_exercises, target } = req.body;
   if (!daily_exercises || !target) {
-    res.status(400).json({
+    return res.status(400).json({
       error: "parameters missing"
     });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   if (isNaN(Number(target)) || !Array.isArray(daily_exercises) || !daily_exercises.every((i: any) => typeof i === "number")) {
-    res.status(400).json({
+    return res.status(400).json({
       error: "malformatted parameters"
     })
   }
 
-  res.json(calculateExercises(daily_exercises, Number(target)))
+  return res.json(calculateExercises(daily_exercises, Number(target)))
 });
 
 const PORT = 3003;

@@ -1,4 +1,3 @@
-/*
 interface HeightWeight {
   height: number,
   weight: number,
@@ -18,7 +17,6 @@ const parseArguments = (args: string[]): HeightWeight => {
     throw new Error('Provided values were not numbers!');
   }
 }
-*/
 
 export const calculateBmi = (height: number, weight: number): string => {
   const bmi = weight / Math.pow((height / 100), 2);
@@ -44,7 +42,6 @@ export const calculateBmi = (height: number, weight: number): string => {
   return('undefined');
 };
 
-/*
 try {
   const { height, weight } = parseArguments(process.argv);
   calculateBmi(height, weight);
@@ -55,4 +52,3 @@ try {
   }
   console.log(errorMessage);
 }
-*/

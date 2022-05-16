@@ -25,6 +25,7 @@ const parseArgs = (args: string[]): ParsedArguments => {
     throw new Error('Provided values were not numbers!');
   }
 };
+*/
 
 export const calculateExercises = (hours: number[], targetDailyHours: number): ExerciseData => {
   const average = hours.reduce((p, c) => p + c, 0) / hours.length;
