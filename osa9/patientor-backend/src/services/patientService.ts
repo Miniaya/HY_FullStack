@@ -14,4 +14,4 @@ const getNonSensitivePatients = (): NonSensitivePatient[] => {
 
 export default {
   getNonSensitivePatients
-}
+};

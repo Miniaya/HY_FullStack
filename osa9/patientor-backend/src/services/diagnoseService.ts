@@ -8,4 +8,4 @@ const getDiagnoses = (): Diagnose[] => {
 
 export default {
   getDiagnoses
-}
+};
