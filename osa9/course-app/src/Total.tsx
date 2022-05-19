@@ -1,13 +1,10 @@
-interface CourseParts {
-  name: string;
-  exerciseCount: number;
-}
+import { CoursePart } from "./data/courseParts";
 
-const Total = ({ courseParts }: { courseParts: Array<CourseParts> }): JSX.Element => {
+const Total = ({ courseParts }: { courseParts: Array<CoursePart> }): JSX.Element => {
   return (
     <p>
       Number of exercises{" "}
-      {courseParts.reduce((carry: number, part: CourseParts) => carry + part.exerciseCount, 0)}
+      {courseParts.reduce((carry: number, part: CoursePart) => carry + part.exerciseCount, 0)}
     </p>
   )
 };
