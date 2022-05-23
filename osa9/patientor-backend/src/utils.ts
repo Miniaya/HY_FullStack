@@ -1,6 +1,6 @@
 import { NewPatient, Gender } from "./types";
 
-type Fields = { name: unknown, dateOfBirth: unknown, ssn: unknown, gender: unknown, occupation: unknown }
+type Fields = { name: unknown, dateOfBirth: unknown, ssn: unknown, gender: unknown, occupation: unknown };
 
 const toNewPatient = ({ name, dateOfBirth, ssn, gender, occupation }: Fields): NewPatient => {
   const newPatient: NewPatient = {
@@ -8,10 +8,11 @@ const toNewPatient = ({ name, dateOfBirth, ssn, gender, occupation }: Fields): N
     dateOfBirth: parseDateOfBirth(dateOfBirth),
     ssn: parseSsn(ssn),
     gender: parseGender(gender),
-    occupation: parseOccupation(occupation)
+    occupation: parseOccupation(occupation),
+    entries: []
   };
 
-  return newPatient
+  return newPatient;
 };
 
 const parseName = (name: unknown): string => {
@@ -28,7 +29,7 @@ const parseDateOfBirth = (date: unknown): string => {
   }
 
   return date;
-}
+};
 
 const parseSsn = (ssn: unknown): string => {
   if (!ssn || !isString(ssn)) {
@@ -44,7 +45,7 @@ const parseGender = (gender: unknown): Gender => {
   }
 
   return gender;
-}
+};
 
 const parseOccupation = (occupation: unknown): string => {
   if (!occupation || !isString(occupation)) {
@@ -56,7 +57,7 @@ const parseOccupation = (occupation: unknown): string => {
 
 const isGender = (param: any): param is Gender => {
   return Object.values(Gender).includes(param);
-}
+};
 
 const isDate = (date: string): boolean => {
   return Boolean(Date.parse(date));

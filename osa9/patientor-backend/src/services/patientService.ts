@@ -22,7 +22,12 @@ const addPatient = (patient: NewPatient): Patient => {
   return(newPatient);
 };
 
+const getPatient = (id: string): Patient => {
+  return patients.filter((patient: Patient) => patient.id === id)[0];
+};
+
 export default {
   getNonSensitivePatients,
-  addPatient
+  addPatient,
+  getPatient,
 };
